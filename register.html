@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会員登録 - CHAGAワールド</title>
+  <style>
+    body {
+      background-color: #000033;
+      color: #fff;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #00ffff;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: none;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #000;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>CHAGAワールド 会員登録</h1>
+  <p>あなたの名前を入力して新しくスタート！</p>
+  <input type="text" id="newUser" placeholder="ニックネーム">
+  <br>
+  <button onclick="register()">登録する</button>
+
+  <script>
+    function register() {
+      const name = document.getElementById('newUser').value;
+      if (name) {
+        localStorage.setItem('cvw_logged_in', 'true');
+        localStorage.setItem('cvw_name', name);
+        window.location.href = 'mypage.html';
+      } else {
+        alert('名前を入力してください');
+      }
+    }
+  </script>
+</body>
+</html>
