@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ミッションズエリア - CHAGAワールド</title>
+  <style>
+    body {
+      background-color: #000022;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #00ffff;
+      margin-top: 30px;
+    }
+    .mission-box {
+      background-color: #002244;
+      border-radius: 15px;
+      padding: 25px;
+      max-width: 500px;
+      margin: 20px auto;
+    }
+    .mission-text {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #00ffcc;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .message {
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: #00ff99;
+    }
+  </style>
+</head>
+<body>
+  <h1>ミッションズエリア</h1>
+  <p>CHAGAから今日の未来ミッションが届いたよ！</p>
+
+  <div class="mission-box">
+    <div class="mission-text" id="missionText"></div>
+    <button onclick="completeMission()">ミッションクリア！</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    const missions = [
+      "ありがとうを3回言おう！",
+      "お手伝いを1つしてみよう！",
+      "笑顔であいさつをしてみよう！",
+      "誰かをほめてみよう！",
+      "人の話を最後まで聞こう！",
+      "元気に『おはよう』を言おう！",
+      "小さなゴミを拾ってみよう！",
+      "なにか1つ勉強してみよう！",
+      "誰かの手助けをしてみよう！",
+      "自分の気持ちを言葉にしてみよう！"
+    ];
+
+    const todayMission = missions[Math.floor(Math.random() * missions.length)];
+    document.getElementById("missionText").textContent = todayMission;
+
+    function completeMission() {
+      document.getElementById("message").textContent = `おつかれさま！「${todayMission}」達成しました！スタンプをGET！`;
+    }
+  </script>
+</body>
+</html>
