@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHAGAバイク - CHAGAワールド</title>
+  <style>
+    body {
+      background-color: #000011;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #00ffff;
+    }
+    .bike-container {
+      background-color: #002244;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 500px;
+    }
+    .bike-status {
+      font-size: 1.2em;
+      margin: 15px 0;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #000;
+      font-size: 1em;
+      padding: 10px 25px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    .message {
+      margin-top: 20px;
+      color: #00ff99;
+    }
+  </style>
+</head>
+<body>
+  <h1>CHAGAバイク</h1>
+  <p>CHAGAワールドを自由にかけぬけよう！</p>
+
+  <div class="bike-container">
+    <div class="bike-status" id="bikeStatus">バイク待機中</div>
+    <button onclick="rideBike()">ライドする！</button>
+    <div class="message" id="rideMessage"></div>
+  </div>
+
+  <script>
+    const destinations = [
+      "ポットチャット号へダッシュ！",
+      "きせかえ屋まで風を切って走ろう！",
+      "CHAGA広場を一周ツーリング！",
+      "クラファン支援所に向かっています！",
+      "スターライトゲートまで一直線！"
+    ];
+
+    function rideBike() {
+      const msg = destinations[Math.floor(Math.random() * destinations.length)];
+      document.getElementById("bikeStatus").textContent = "ライド中...";
+      document.getElementById("rideMessage").textContent = msg;
+    }
+  </script>
+</body>
+</html>
