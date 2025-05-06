@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ネオンスカイトレイン - CHAGAワールド</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to top, #000011, #002244);
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #00ffff;
+      margin-bottom: 10px;
+    }
+    .train-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: #001a33;
+      border-radius: 15px;
+      padding: 20px;
+    }
+    .station {
+      margin: 20px 0;
+      padding: 15px;
+      background-color: #003355;
+      border-radius: 10px;
+    }
+    .station h2 {
+      color: #ffcc00;
+    }
+    .next-btn {
+      background-color: #00ffff;
+      color: #000;
+      border: none;
+      padding: 10px 25px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ネオンスカイトレイン</h1>
+  <p>CHAGAワールドを空から見渡そう！ 各ステーションに停車するよ。</p>
+
+  <div class="train-container" id="stationBox">
+    <div class="station">
+      <h2>出発駅：CHAGAゲート</h2>
+      <p>ようこそCHAGAワールドへ！これから冒険の旅が始まるよ。</p>
+    </div>
+  </div>
+  <button class="next-btn" onclick="nextStation()">次のステーションへ</button>
+
+  <script>
+    const stations = [
+      { title: 'ポットチャット号', desc: 'CHAGAがナビする安心チャット空間。' },
+      { title: 'ミッションズエリア', desc: '日替わりの挑戦が待ってるよ！' },
+      { title: 'CHAGAきせかえ屋', desc: 'スタイルを変えて遊ぼう！' },
+      { title: 'クラファン支援所', desc: '地域児童センターを全国に広げよう！' },
+      { title: 'スターライトゲート', desc: 'スターライトパス限定の特別演出！' },
+      { title: '終点：CHAGAメタバース広場', desc: '未来のワールドがここにあるよ！' }
+    ];
+
+    let index = 0;
+    function nextStation() {
+      if (index < stations.length) {
+        const box = document.getElementById('stationBox');
+        const data = stations[index];
+        box.innerHTML = `<div class='station'><h2>${data.title}</h2><p>${data.desc}</p></div>`;
+        index++;
+      } else {
+        document.querySelector('.next-btn').disabled = true;
+        document.querySelector('.next-btn').textContent = '到着しました！';
+      }
+    }
+  </script>
+</body>
+</html>
