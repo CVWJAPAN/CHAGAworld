@@ -2,133 +2,86 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CHAGAworld</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="icon-chaga-192.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    body { background: #000010; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; }
-    h1 { margin-top: 20px; color: #00ffff; }
-    .section { padding: 30px 10px; border-bottom: 1px solid #00ffff; }
-    .neon-button, .feel-btn {
-      background: #00ffff; color: #000; padding: 12px 20px;
-      margin: 8px; border-radius: 10px; font-weight: bold; border: none; cursor: pointer;
+    body { background: #000010; color: #fff; font-family: sans-serif; text-align: center; margin: 0; }
+    h1 { color: #0ff; padding: 20px 0; }
+    .section { padding: 20px; border-top: 1px solid #0ff; }
+    .feel-btn, .neon-button {
+      background: #0ff; color: #000; padding: 10px 16px; margin: 5px;
+      border: none; border-radius: 8px; font-weight: bold; cursor: pointer;
     }
-    .neon-button:hover, .feel-btn:hover { background: #ffcc00; }
-    .chaga-icon { width: 100px; margin: 10px auto; }
+    .feel-btn:hover, .neon-button:hover { background: #ff0; }
     .response {
-      margin-top: 20px; padding: 15px; background: #0ff;
-      color: #001122; border-radius: 15px;
-      min-height: 40px; max-width: 80%; margin-left: auto; margin-right: auto;
+      margin: 10px auto; background: #0ff; color: #001122;
+      padding: 12px; border-radius: 10px; width: 80%;
     }
     .locked-box {
-      background: #111; border: 2px dashed #f00;
-      padding: 20px; margin: 10px auto; width: 80%;
-      border-radius: 10px; color: #f88;
+      background: #111; border: 1px dashed #f55; color: #faa;
+      padding: 12px; border-radius: 8px; margin-top: 10px;
     }
   </style>
 </head>
 <body>
   <h1>CHAGAworld</h1>
-  <img src="icon-chaga-192.png" alt="CHAGA" class="chaga-icon" />
-  <div id="chaga-talk" class="response">CHAGA: 今日も来てくれてありがとう！</div>
+  <div class="response" id="chaga-response">CHAGA: 今日も来てくれてありがとう！</div>
 
   <div class="section">
-    <h2>■ ポットチャット（AIとの対話）</h2>
-    <p>気持ちを選んで、CHAGAと話そう！</p>
-    <div>
-      <button class="feel-btn" onclick="respond('happy')">うれしい</button>
-      <button class="feel-btn" onclick="respond('sad')">かなしい</button>
-      <button class="feel-btn" onclick="respond('angry')">おこってる</button>
-      <button class="feel-btn" onclick="respond('scared')">こわい</button>
-      <button class="feel-btn" onclick="respond('tired')">つかれた</button>
-      <button class="feel-btn" onclick="respond('anxious')">ふあん</button>
-      <button class="feel-btn" onclick="respond('lonely')">さびしい</button>
-      <button class="feel-btn" onclick="respond('curious')">きになる</button>
-      <button class="feel-btn" onclick="respond('excited')">ワクワク！</button>
-      <button class="feel-btn" onclick="respond('meh')">ふつう</button>
+    <h2>■ ポットチャット</h2>
+    <p>気持ちを教えてね</p>
+    <button class="feel-btn" onclick="respond('happy')">うれしい</button>
+    <button class="feel-btn" onclick="respond('sad')">かなしい</button>
+    <button class="feel-btn" onclick="respond('angry')">おこってる</button>
+    <button class="feel-btn" onclick="respond('excited')">ワクワク！</button>
+  </div>
+
+  <div class="section">
+    <h2>■ ミッションズエリア</h2>
+    <p>今日のミッション：「だれかを笑顔にする」</p>
+    <button class="neon-button" onclick="alert('えらい！CHAGAも応援してるよ！')">完了報告</button>
+  </div>
+
+  <div class="section">
+    <h2>■ CHAGAバイク</h2>
+    <p>バイクで未来の街を走ろう！（演出準備中）</p>
+  </div>
+
+  <div class="section">
+    <h2>■ CHAGAきせかえ屋</h2>
+    <div class="locked-box">
+      このエリアは <strong>キッズパス（¥150）</strong> が必要です。<br>
+      <a href="https://square.link/u/bkdoPBcr" target="_blank">▶ 支援して開放</a>
     </div>
   </div>
 
   <div class="section">
-    <h2>■ アトラクション</h2>
-    <div id="bike-locked" class="locked-box">
-      このエリアは<strong>ヒーローパス</strong>（¥500）が必要です。
-      <a href="https://square.link/u/w12YqVxX" target="_blank" onclick="unlockAccess('hero_pass')">▶ 支援して開放</a>
-    </div>
-    <div id="bike-unlocked" style="display:none;">
-      <p>CHAGAバイクに乗って未来を駆け抜けよう！</p>
-    </div>
-
-    <div id="tram-locked" class="locked-box">
-      このエリアは<strong>スターライトパス</strong>（¥1000）が必要です。
-      <a href="https://square.link/u/F37emYw1" target="_blank" onclick="unlockAccess('star_pass')">▶ 支援して開放</a>
-    </div>
-    <div id="tram-unlocked" style="display:none;">
-      <p>スターライトトラムで旅に出発！</p>
+    <h2>■ ネオンスカイトレイン</h2>
+    <div class="locked-box">
+      <strong>スターライトパス（¥1000）</strong> が必要です。<br>
+      <a href="https://square.link/u/F37emYw1" target="_blank">▶ 支援して開放</a>
     </div>
   </div>
 
   <div class="section">
-    <h2>■ クラファン支援所</h2>
-    <p>地域児童センター設立を目指してクラウドファンディング実施中！</p>
-    <a href="https://square.link/u/bkdoPBcr" target="_blank" class="neon-button">▶ 応援はこちら</a>
-  </div>
-
-  <div class="section">
-    <h2>■ 支援者専用 AIパネル（CVWCORE）</h2>
-    <div id="core-locked" class="locked-box">
-      <p>このエリアは支援者専用です。</p>
-      <a href="https://square.link/u/F37emYw1" target="_blank" onclick="unlockAccess('core_pass')">▶ スターライトパスで開放</a>
-    </div>
-    <div id="core-unlocked" style="display:none;">
-      <p>最近の子どもの気持ち：<br><em>少し不安定な傾向。元気づけの声がけが有効です。</em></p>
-      <p>AIより提案：<br><em>「安心できる話題」や「一緒に遊ぶ時間」を増やしましょう。</em></p>
+    <h2>■ CVWCORE支援者画面</h2>
+    <div class="locked-box">
+      支援者専用：<strong>スターライトパス</strong> をお持ちの方のみ<br>
+      <a href="https://square.link/u/F37emYw1" target="_blank">▶ パスで開放</a>
     </div>
   </div>
 
 <script>
   const responses = {
-    happy: ["それは最高だね！", "うれしい気持ちを大切にしよう！", "今日もいい一日になるよ！"],
-    sad: ["そっか、かなしいんだね。", "つらいときは無理しないでいいよ。", "ここにいるよ、いつでも話してね。"],
-    angry: ["おこってるんだね。深呼吸してみよう！", "気持ちを伝えてくれてありがとう。", "言葉にするのって大事だよね。"],
-    scared: ["こわいって感じるのは悪いことじゃないよ。", "そばにいるから安心してね。", "ゆっくりで大丈夫。"],
-    tired: ["たくさんがんばったんだね。", "ちょっと休もうか。", "無理しないでえらいね。"],
-    anxious: ["不安なときもあるよね。", "きみの味方はここにいるよ。", "一緒にのりこえよう！"],
-    lonely: ["さびしいときは、CHAGAとお話ししよう。", "ひとりじゃないよ。", "ここにきてくれてありがとう。"],
-    curious: ["それ気になるね！一緒にしらべよう！", "わくわくって大切な気持ち！", "やってみたいことある？"],
-    excited: ["その気持ち、最高！", "いっしょにもっと楽しいことしよう！", "笑顔が未来をつくるよ！"],
-    meh: ["ふつうなときもあるよね。", "無理して笑わなくていいんだよ。", "なにか楽しいこと見つけにいこう！"]
+    happy: ["それは最高だね！", "うれしい気持ちを大切にしよう！"],
+    sad: ["そっか、かなしいんだね。", "ここにいるよ、いつでも話してね。"],
+    angry: ["おこってるんだね。深呼吸してみよう！"],
+    excited: ["その気持ち、最高！", "いっしょに楽しいことしよう！"]
   };
-
   function respond(feel) {
-    const phrases = responses[feel];
-    const msg = phrases[Math.floor(Math.random() * phrases.length)];
-    document.getElementById("chaga-talk").textContent = "CHAGA: " + msg;
+    const msg = responses[feel][Math.floor(Math.random() * responses[feel].length)];
+    document.getElementById("chaga-response").textContent = "CHAGA: " + msg;
   }
-
-  function unlockAccess(type) {
-    localStorage.setItem(type, "unlocked");
-    checkAccess();
-  }
-
-  function checkAccess() {
-    if (localStorage.getItem("hero_pass") === "unlocked") {
-      document.getElementById("bike-locked").style.display = "none";
-      document.getElementById("bike-unlocked").style.display = "block";
-    }
-    if (localStorage.getItem("star_pass") === "unlocked") {
-      document.getElementById("tram-locked").style.display = "none";
-      document.getElementById("tram-unlocked").style.display = "block";
-    }
-    if (localStorage.getItem("core_pass") === "unlocked") {
-      document.getElementById("core-locked").style.display = "none";
-      document.getElementById("core-unlocked").style.display = "block";
-    }
-  }
-
-  window.onload = checkAccess;
 </script>
 </body>
 </html>
