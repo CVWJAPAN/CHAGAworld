@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ログイン - CHAGAワールド</title>
+  <style>
+    body { background-color: #000022; color: #fff; font-family: sans-serif; text-align: center; padding: 40px; }
+    input, button {
+      padding: 10px; margin: 10px; border-radius: 5px; border: none;
+      font-size: 1em;
+    }
+    button { background-color: #00ffff; color: #000; }
+  </style>
+</head>
+<body>
+  <h1>CHAGAワールド ログイン</h1>
+  <p>あなたの名前を入力してください</p>
+  <input type="text" id="username" placeholder="ニックネーム">
+  <br>
+  <button onclick="login()">ログイン</button>
+
+  <script>
+    function login() {
+      const name = document.getElementById('username').value;
+      if (name) {
+        localStorage.setItem('cvw_logged_in', 'true');
+        localStorage.setItem('cvw_name', name);
+        window.location.href = 'mypage.html';
+      } else {
+        alert('名前を入力してください');
+      }
+    }
+  </script>
+</body>
+</html>
