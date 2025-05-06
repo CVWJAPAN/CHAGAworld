@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マイページ - CHAGAワールド</title>
+  <style>
+    body { background-color: #000; color: #fff; font-family: sans-serif; text-align: center; padding: 40px; }
+    h1 { color: #00ffff; }
+    .info { margin-top: 20px; font-size: 1.2em; }
+    .btn { margin-top: 30px; padding: 10px 20px; font-size: 1em; background: #00ffff; border: none; border-radius: 8px; color: #000; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>ようこそ、<span id="username">ゲスト</span>さん</h1>
+  <div class="info">
+    <p>ここではあなたのスタンプやレベル、支援情報が確認できます。</p>
+  </div>
+  <button class="btn" onclick="logout()">ログアウト</button>
+
+  <script>
+    const name = localStorage.getItem('cvw_name');
+    if (name) {
+      document.getElementById('username').textContent = name;
+    }
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>
